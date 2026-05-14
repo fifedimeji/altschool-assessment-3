@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Mozilla+Text:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Student Grade Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>👨🏾‍🎓 Student <span>Grade</span> Tracker</h1>
+        <!-- FORM TO INPUT STUDENT NAMES AND GRADES -->
+        <form id="student-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="grade">Grade:</label>
+                <input type="text" id="grade">
+            </div>
+            <div>
+                <label for="matricno">Matriculation Number:</label>
+                <input type="text" id="matricno">
+            </div>
+            <input type="submit" value="Add Student's Grade" id="add-student-grade">
+        </form>
+        <!-- TABLE TO DISPLAY STUDENT/GRADE LIST -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Matriculation Number</th>
+                </tr>
+            </thead>
+            <tbody id="student-grade-list"></tbody>
+        </table>
+        <!-- CARD TO DISPLAY AVERAGE GRADE -->
+        <div id="average-grade-card">
+            <h5>Average Grade:</h5>
+            <h2 id="average-grade">0</h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

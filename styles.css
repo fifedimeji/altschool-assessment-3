@@ -1,0 +1,183 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 20px;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #212529;
+    letter-spacing: -1px;
+}
+
+h1 span {
+    background-color: #7E6EEC;
+    color: #ffffff;
+    padding: 0.1rem 0.6rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#student-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #f1f3f5;
+    border-radius: 12px;
+}
+
+#student-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+input[type="text"] {
+    padding: 0.8rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #7E6EEC;
+}
+
+input[type="submit"] {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    background-color: #7E6EEC;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #5B47E0;
+    transform: translateY(-2px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+thead th {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 2px solid #dee2e6;
+    color: #868e96;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+tbody td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.above-avg {
+    background-color: rgba(71, 224, 91, 0.05);
+    color: #2b8a3e;
+    font-weight: 600;
+}
+
+.delete-btn {
+    color: #fa5252;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #fff5f5;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent; 
+    animation: slideIn 0.4s ease-out;
+}
+
+.alert-success {
+    color: #2b593f;
+    background-color: #e6f4ea;
+    border-color: #ceead6;
+}
+
+.alert-failure {
+    color: #922b21;
+    background-color: #fceae9;
+    border-color: #fadbd8;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+#average-grade-card {
+    background: #5B47E0;
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#average-grade-card h5 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+#average-grade-card h2 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: #ffffff;
+}
