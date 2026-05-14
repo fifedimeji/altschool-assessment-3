@@ -3,7 +3,6 @@ class studentGrade {
     constructor(name, grade, matricno) {
         this.name = name;
         this.grade = grade;
-        this.matricno = matricno;
     }
 }
 
@@ -26,7 +25,6 @@ class UI {
         row.innerHTML = `
             <td>${grade.name}</td>
             <td>${grade.grade}</td>
-            <td>${grade.matricno}</td>
             <td><a href="#" class="delete-btn delete">Delete</a></td>
         `;
 
@@ -80,7 +78,6 @@ class UI {
     static clearFields() {
         document.querySelector('#name').value = ''
         document.querySelector('#grade').value = ''
-        document.querySelector('#matricno').value = ''
     }
 }
 // STORAGE CLASS
@@ -104,11 +101,11 @@ class Store {
         localStorage.setItem('students', JSON.stringify(students))
     }
 
-    static removeStudent(matricno) {
+    static removeStudent(grade) {
         const students = Store.getStudents()
 
         students.forEach((student, index) => {
-            if (student.matricno === matricno) {
+            if (student.grade === grade) {
                 students.splice(index, 1)
             }
         })
@@ -122,27 +119,34 @@ document.addEventListener('DOMContentLoaded', UI.displayStudents)
 document.querySelector('#student-form').addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = document.querySelector('#name').value
-    const grade = document.querySelector('#grade').value
-    const matricno = document.querySelector('#matricno').value
+    const name = document.querySelector('#name').value.trim();
+    const gradeInput = document.querySelector('#grade').value.trim();
 
-    if (name === '' || grade === '' || matricno === '') {
-        UI.showAlert('Please fill in all fields', 'failure')
+    const grade = Number(gradeInput);
+
+    if (name === '' || gradeInput === '') {
+        UI.showAlert('Please fill in all fields', 'failure');
+    } 
+    
+    else if (isNaN(grade) || grade < 0 || grade > 100) {
+        UI.showAlert('Grade must be a number between 0 and 100', 'failure');
     } else {
+        const student = new studentGrade(name, gradeInput);
 
-        const student = new studentGrade(name, grade, matricno)
+        // Add student to UI
+        UI.addStudentToList(student);
 
-        UI.addStudentToList(student)
+        // Add student to LocalStorage
+        Store.addStudent(student);
 
-        Store.addStudent(student)
+        // Show success message
+        UI.showAlert('Grade Added Successfully', 'success');
 
-        UI.showAlert('Grade Added', 'success')
-
-        UI.clearFields()
-
-        UI.updateAverage()
+        // Clear fields and update the average
+        UI.clearFields();
+        UI.updateAverage();
     }
-})
+});
 // EVENT: DELETE A STUDENT/GRADE
 document.querySelector('#student-grade-list').addEventListener('click', (e) => {
     UI.deleteStudent(e.target)
